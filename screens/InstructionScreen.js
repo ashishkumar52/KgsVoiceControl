@@ -72,6 +72,12 @@ const InstructionScreen = () => {
                         onPress={() => navigation.navigate('Home')}
                     />
             </View> 
+            {/* <View style={{ color: '#fff', marginTop: 30}}>
+                    <Button
+                        title="Next"
+                        onPress={() => navigation.navigate('AssessSymptoms')}
+                    />
+            </View>  */}
         </View>
     );
 }

@@ -11,6 +11,7 @@ import CustomHeaderButton from './common/CustomHeaderButton'
 import SymptomSummary from './screens/SymptomSummary';
 import SelfHelpLibrary from './screens/SelfHelpLibrary';
 import SymptomAssessMent from './screens/SymptomAssessMent';
+import { AssessSymptoms } from './screens/AssessSymptoms';
 const Stack = createNativeStackNavigator();
 
 
@@ -37,10 +38,11 @@ function App() {
             ),
           }} name="Home" component={HomeScreen} />
         <Stack.Screen name="Instruction" component={InstructionScreen} />
-        <Stack.Screen name="My Symptom Summary" component={SymptomSummary} />
-        <Stack.Screen name="Self Help Library" component={SelfHelpLibrary} />
-        <Stack.Screen name="Partial Symptom Assessment" component={SymptomAssessMent} />
-        <Stack.Screen name="Full Symptom Assessment" component={SymptomAssessMent} />
+        <Stack.Screen name="My Symptom Summary" component={AssessSymptoms} />
+        <Stack.Screen name="Self Help Library" component={AssessSymptoms} />
+        <Stack.Screen name="Partial Symptom Assessment" component={AssessSymptoms} />
+        <Stack.Screen name="Full Symptom Assessment" component={AssessSymptoms} />
+        <Stack.Screen name="AssessSymptoms" component={AssessSymptoms} />
       </Stack.Navigator>
     </NavigationContainer>
   );
