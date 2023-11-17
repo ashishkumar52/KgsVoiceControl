@@ -12,7 +12,6 @@ import CustomHeaderButton from './common/CustomHeaderButton'
 import SymptomSummary from './screens/SymptomSummary';
 import SelfHelpLibrary from './screens/SelfHelpLibrary';
 import SymptomAssessMent from './screens/SymptomAssessMent';
-import { AssessSymptoms } from './screens/AssessSymptoms';
 const Stack = createNativeStackNavigator();
 
 
