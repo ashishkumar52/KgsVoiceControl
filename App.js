@@ -12,6 +12,7 @@ import CustomHeaderButton from './common/CustomHeaderButton'
 import SymptomSummary from './screens/SymptomSummary';
 import SelfHelpLibrary from './screens/SelfHelpLibrary';
 import SymptomAssessMent from './screens/SymptomAssessMent';
+import { AssessSymptoms } from './screens/AssessSymptoms';
 const Stack = createNativeStackNavigator();
 
 
@@ -30,10 +31,7 @@ function App() {
             ),
             headerRight: () => (
               <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-                <Item title="Menu" iconName='ios-menu' onPress={() => {
-                  navData.navigation.toggleDrawer()
-                  }
-                }/>
+                <Item title="Menu" iconName='ios-menu' onPress={() => {}}/>
               </HeaderButtons>
             ),
           }} name="Home" component={HomeScreen} />
@@ -42,6 +40,7 @@ function App() {
         <Stack.Screen name="Self Help Library" component={AssessSymptoms} />
         <Stack.Screen name="Partial Symptom Assessment" component={AssessSymptoms} />
         <Stack.Screen name="Full Symptom Assessment" component={AssessSymptoms} />
+        <Stack.Screen name="AssessSymptoms" component={AssessSymptoms} />
       </Stack.Navigator>
     </NavigationContainer>
   );
