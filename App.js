@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import InstructionScreen from './screens/InstructionScreen';
+import { AssessSymptoms } from './screens/AssessSymptoms';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 import CustomHeaderButton from './common/CustomHeaderButton'
 import SymptomSummary from './screens/SymptomSummary';
