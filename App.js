@@ -30,10 +30,7 @@ function App() {
             ),
             headerRight: () => (
               <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-                <Item title="Menu" iconName='ios-menu' onPress={() => {
-                  navData.navigation.toggleDrawer()
-                  }
-                }/>
+                <Item title="Menu" iconName='ios-menu' onPress={() => {}}/>
               </HeaderButtons>
             ),
           }} name="Home" component={HomeScreen} />
