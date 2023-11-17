@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity,ScrollView } from 'react-native';
 import { Button } from 'react-native-elements';
 import { NavigationContainer,useNavigation} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -20,6 +20,7 @@ const HomeScreen = () => {
         <Text style={{ color: '#ffff', fontWeight: '700', fontSize: 20 }}>{Keys.HOMEPAGE_BANNER}</Text>
       </View>
       <View style={StyleSheets.buttonView}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         {
           homeButton.map((button, index) => {
             return (
@@ -30,11 +31,12 @@ const HomeScreen = () => {
             )
           })
         }
+        </ScrollView>
         <View style={{ paddingLeft: 60, margin: 5 }}>
           <Text style={{ color: '#91c2ca', fontSize: 18, fontWeight: 500 }}>{Keys.HOMEPAGE_FOOTER_BANNER}</Text>
         </View>
       </View>
-      <View style={{ position: 'absolute', left: 0, right: 0, bottom: 15 }}>
+      <View >
         <Button icon={<FontAwesome name="volume-control-phone" size={40} style={{ margin: 10, }} color='white' />
         } title={Keys.CONTACT_NAME} buttonStyle={[StyleSheets.button, StyleSheets.footerButton]} onPress={() => { }}>
         </Button></View>
