@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text,ScrollView, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-elements';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer,useNavigation} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -36,11 +36,10 @@ const HomeScreen = () => {
           <Text style={{ color: '#91c2ca', fontSize: 18, fontWeight: 500 }}>{Keys.HOMEPAGE_FOOTER_BANNER}</Text>
         </View>
       </View>
-      <View>
-        <Button icon={<FontAwesome name="volume-control-phone" size={40} style={{ margin: 10, }} color='white' />} 
-         title={Keys.CONTACT_NAME} buttonStyle={[StyleSheets.button, StyleSheets.footerButton]} onPress={() => { }}>
-        </Button>
-      </View>
+      <View style={{marginBottom: 20}}>
+        <Button icon={<FontAwesome name="volume-control-phone" size={40} style={{ marginLeft: 10,marginRight: 10}} color='white' />
+        } title={Keys.CONTACT_NAME} buttonStyle={[StyleSheets.button, StyleSheets.footerButton]} onPress={() => { }}>
+        </Button></View>
     </>
   );
 }
