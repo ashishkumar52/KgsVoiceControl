@@ -7,8 +7,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import InstructionScreen from './screens/InstructionScreen';
 import { AssessSymptoms } from './screens/AssessSymptoms';
-
-
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import CustomHeaderButton from './common/CustomHeaderButton'
+import SymptomSummary from './screens/SymptomSummary';
+import SelfHelpLibrary from './screens/SelfHelpLibrary';
+import SymptomAssessMent from './screens/SymptomAssessMent';
 const Stack = createNativeStackNavigator();
 
 
@@ -19,20 +22,26 @@ function App() {
         <Stack.Screen
           options={{
             headerTitle: () => (
-              <Text>
-                NMS
-              </Text>
+              <View style={{flexDirection:'column'}}>
+              <Text style={{fontSize:40, fontWeight:'bold',color: '#69bfce'}}>
+              NMS
+            </Text>
+            </View>
             ),
             headerRight: () => (
-              <Button
-                onPress={() => alert('This is a button!')}
-                title="Setting"
-                color="#00cc00"
-              />
+              <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+                <Item title="Menu" iconName='ios-menu' onPress={() => {
+                  navData.navigation.toggleDrawer()
+                  }
+                }/>
+              </HeaderButtons>
             ),
           }} name="Home" component={HomeScreen} />
         <Stack.Screen name="Instruction" component={InstructionScreen} />
-        <Stack.Screen name="AssessSymptoms" component={AssessSymptoms} />
+        <Stack.Screen name="My Symptom Summary" component={AssessSymptoms} />
+        <Stack.Screen name="Self Help Library" component={AssessSymptoms} />
+        <Stack.Screen name="Partial Symptom Assessment" component={AssessSymptoms} />
+        <Stack.Screen name="Full Symptom Assessment" component={AssessSymptoms} />
       </Stack.Navigator>
     </NavigationContainer>
   );

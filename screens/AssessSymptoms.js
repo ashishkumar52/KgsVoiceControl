@@ -5,13 +5,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const styles = StyleSheet.create({
     heading: {
+        display: "flex",
         backgroundColor: "grey",
         alignSelf: 'stretch',
         textAlign: 'center',
         fontSize: 30,
+        height: "8%",
         display: "flex",
         position: "relative",
         marginBottom: 100,
+        textTransform: "uppercase",
+        paddingTop: "3%",
+        letterSpacing: -1
     },
     question: {
         display: "flex",
@@ -73,11 +78,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export const AssessSymptoms = () => {
+export const AssessSymptoms = (props) => {
     const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', position: "relative", top: -40 }}>
-            <Text style={styles.heading}>ASSESS SYMPTOMS</Text>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', position: "relative", top: -30 }}>
+            <Text style={styles.heading}>{props.route.name}</Text>
             <Text style={styles.question}>Do you experience fluctuation in your symptoms of Parkinson's ?</Text>
             <View  style={styles.buttonText}>
                 <TouchableOpacity
