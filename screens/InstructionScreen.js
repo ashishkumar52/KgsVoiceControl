@@ -244,6 +244,12 @@ const InstructionScreen = () => {
         </TouchableOpacity> */}
       </View>
     </View>
+            {/* <View style={{ color: '#fff', marginTop: 30}}>
+                    <Button
+                        title="Next"
+                        onPress={() => navigation.navigate('AssessSymptoms')}
+                    />
+            </View>  */}
         </View>
     );
 }
