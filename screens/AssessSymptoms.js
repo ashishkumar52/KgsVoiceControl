@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import VoiceControl from '../common/VoiceControl';
 
 const styles = StyleSheet.create({
     heading: {
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
 export const AssessSymptoms = (props) => {
     const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
     return (
+        <>
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', position: "relative", top: -30 }}>
             <Text style={styles.heading}>{props.route.name}</Text>
             <Text style={styles.question}>Do you experience fluctuation in your symptoms of Parkinson's ?</Text>
@@ -134,5 +136,7 @@ export const AssessSymptoms = (props) => {
                 <Text style={{ color: "#fff", marginLeft: 10 }}> NEXT </Text>
             </TouchableOpacity>
         </View>
+        <VoiceControl />
+        </>
     );
 }

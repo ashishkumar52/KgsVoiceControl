@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Keys, homeButton } from '../config/en'
+import VoiceControl from '../common/VoiceControl';
 
 import StyleSheets from '../css/CommonCss'
 const HomeScreen = () => {
@@ -40,6 +41,7 @@ const HomeScreen = () => {
         <Button icon={<FontAwesome name="volume-control-phone" size={40} style={{ marginLeft: 10,marginRight: 10}} color='white' />
         } title={Keys.CONTACT_NAME} buttonStyle={[StyleSheets.button, StyleSheets.footerButton]} onPress={() => { }}>
         </Button></View>
+        <VoiceControl />
     </>
   );
 }
