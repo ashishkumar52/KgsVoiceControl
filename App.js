@@ -12,25 +12,26 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
 import InstructionScreen from './screens/InstructionScreen';
-import Voice from '@react-native-voice/voice';
+// import Voice from '@react-native-voice/voice';
 
 
 const Stack = createNativeStackNavigator();
 
 
-function App() {
+function App({ navigation }) {
   const [messages, setMessages] = useState([]);
   const [isListening, setIsListening] = useState(false);
   const [recognizedText, setRecognizedText] = useState('');
+  // const navigation = useNavigation();
 
   useEffect(()=>{
-    Voice.onSpeechStart = onSpeechStart;
-    Voice.onSpeechEnd = stopListing;
-    Voice.onSpeechResults = onSpeechResults;
-    Voice.onSpeechError = error => console.log('onSpeechError', error)
-    return () =>{
-      Voice.destroy().then(Voice.removeAllListeners); 
-    };
+    // Voice.onSpeechStart = onSpeechStart;
+    // Voice.onSpeechEnd = stopListing;
+    // Voice.onSpeechResults = onSpeechResults;
+    // Voice.onSpeechError = error => console.log('onSpeechError', error)
+    // return () =>{
+    //   Voice.destroy().then(Voice.removeAllListeners); 
+    // };
 
   }, [])
 
@@ -47,6 +48,12 @@ function App() {
     console.log("Result..", event);
     const text = event.value[0];
     setRecognizedText(text)
+    if (text == "I agree"){
+        console.log("Navigating to Home page")
+        navigation.navigate('Home');
+    } else{
+      console.log("Naviagation not found!");
+    }
   }
 
   const startListing = async () =>{
@@ -99,60 +106,16 @@ function App() {
         <Stack.Screen name="Instruction" component={InstructionScreen} />
       </Stack.Navigator>
 
-      <View style={styles.container}>
-      <SafeAreaView />
-      <ScrollView contentContainerStyle={styles.messagesContainer}>
-        {messages.map((message, index) => (
-          <View
-            key={index}
-            style={[
-              styles.messageBubble,
-              {
-                alignSelf:
-                  message.sender === 'user' ? 'flex-end' : 'flex-start',
-                backgroundColor:
-                  message.sender === 'user' ? '#BB2525' : '#141E46',
-              },
-            ]}>
-            <Text style={styles.messageText}>{message.text}</Text>
-          </View>
-        ))}
-      </ScrollView>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          placeholder="Type your message..."
-          value={recognizedText}
-          onChangeText={text => setRecognizedText(text)}
-        />
-        <TouchableOpacity
-          onPress={() => isListening? stopListing() : startListing() }
-          style={styles.voiceButton}>
-          {isListening ? (
-            <Text style={styles.voiceButtonText}>•••</Text>
-          ) : (
-            <Image
-              source={{
-                uri: 'https://cdn-icons-png.flaticon.com/512/4980/4980251.png',
-              }}
-              style={{width: 45, height: 45}}
-            />
-          )}
-        </TouchableOpacity>
-        <TouchableOpacity onPress={sendMessage} style={styles.sendButton}>
-          <Text style={styles.sendButtonText}>Send</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+ 
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFF5E0',
-  },
+  // container: {
+  //   flex: 1,
+  //   backgroundColor: '#FFF5E0',
+  // },
   messagesContainer: {
     padding: 10,
   },
